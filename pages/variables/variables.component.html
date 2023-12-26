@@ -1,0 +1,17 @@
+<wselect
+	(modelChange)="setVariables($event)"
+	placeholder="Select operator"
+	[items]="operators"
+	[select]="operator"
+	*ngIf="operators && operator"
+></wselect>
+
+<wform
+	#formRef
+	[config]="form"
+	*ngIf="operator"
+	[submition]="submition"
+	(wChange)="update(formRef._values())"
+></wform>
+
+{{operators|json}}
