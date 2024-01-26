@@ -5,6 +5,7 @@ export interface Operator {
 	_id: string;
 	name: string;
 	description: string;
+	theme: string;
 	variables: Record<string, unknown>;
 }
 

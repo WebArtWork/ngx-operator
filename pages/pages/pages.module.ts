@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CoreModule } from 'src/app/core/core.module';
-import { VariablesComponent } from './variables.component';
+import { PagesComponent } from './pages.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [{
 	path: '',
-	component: VariablesComponent
-}, {
-	path: ':pageId',
-	component: VariablesComponent
+	component: PagesComponent
 }];
 
 @NgModule({
@@ -17,10 +14,10 @@ const routes: Routes = [{
 		CoreModule
 	],
 	declarations: [
-		VariablesComponent
+		PagesComponent
 	],
 	providers: []
 
 })
 
-export class VariablesModule { }
+export class PagesModule { }

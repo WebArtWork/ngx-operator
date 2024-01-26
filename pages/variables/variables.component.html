@@ -1,17 +1,9 @@
-<wselect
-	(modelChange)="setVariables($event)"
-	placeholder="Select operator"
-	[items]="operators"
-	[select]="operator"
-	*ngIf="operators && operator"
-></wselect>
-
+<div *ngIf="loading">Variables are loading</div>
+<div *ngIf="!loading && !variables.length">There is no variables</div>
 <wform
 	#formRef
 	[config]="form"
-	*ngIf="operator"
 	[submition]="submition"
+	*ngIf="variables.length && !loading"
 	(wChange)="update(formRef._values())"
 ></wform>
-
-{{operators|json}}
