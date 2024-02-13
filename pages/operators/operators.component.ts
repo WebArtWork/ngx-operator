@@ -32,7 +32,7 @@ export class OperatorsComponent {
 				fields: [
 					{
 						name: "Placeholder",
-						value: "fill operators title",
+						value: "fill operator title",
 					},
 					{
 						name: "Label",
@@ -46,11 +46,25 @@ export class OperatorsComponent {
 				fields: [
 					{
 						name: "Placeholder",
-						value: "fill operators description",
+						value: "fill operator description",
 					},
 					{
 						name: "Label",
 						value: "Description",
+					},
+				],
+			},
+			{
+				name: "Photo",
+				key: "thumb",
+				fields: [
+					{
+						name: "Placeholder",
+						value: "fill operator image",
+					},
+					{
+						name: "Label",
+						value: "Image",
 					},
 				],
 			},

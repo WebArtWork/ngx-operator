@@ -9,7 +9,6 @@ import { TranslateService } from 'src/app/modules/translate/translate.service';
 import { FormInterface } from 'src/app/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
 import { OperatorService } from '../../services/operator.service';
-import { ThemeService } from 'src/app/modules/theme/services/theme.service';
 
 @Component({
 	templateUrl: './pages.component.html',
@@ -22,7 +21,7 @@ export class PagesComponent {
 		.replace('/operator/operators/', '')
 		.replace('/pages', '');
 
-	columns = ['name', 'url'];
+	columns = ['name', 'url', 'page', 'json'];
 
 	pages: { _id: string; name: string }[] = [];
 
@@ -160,16 +159,13 @@ export class PagesComponent {
 		private _form: FormService,
 		private _core: CoreService,
 		private _http: HttpService,
-		private _ts: ThemeService,
 		private _router: Router
 	) {
 		this._mongo.on('operator theme', () => {
-			const folder = this._ts.doc(
-				this._os.doc(this.operator)?.theme as string
-			).folder;
+			const theme = this._os.doc(this.operator)?.theme;
 
-			if (folder) {
-				this._http.get('/api/theme/pages/' + folder, (pages) => {
+			if (theme) {
+				this._http.get('/api/theme/pages/' + theme, (pages) => {
 					for (const page of pages || []) {
 						this.pages.push(page);
 					}

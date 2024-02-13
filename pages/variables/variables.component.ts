@@ -36,10 +36,9 @@ export class VariablesComponent {
 		this.variables.splice(0, this.variables.length);
 		const operator: Operator = this._os.doc(this.operator);
 		const page: Operatorpage = this._ps.doc(this.page as string);
-		const folder = this._ts.doc(operator.theme as string).folder;
 
 		this._http.get(
-			`/api/theme/${this.page ? 'page' : 'template'}/variables/${folder}${
+			`/api/theme/${this.page ? 'page' : 'template'}/variables/${operator.theme}${
 				this.page ? '/' + page.page : ''
 			}`,
 			(resp) => {
