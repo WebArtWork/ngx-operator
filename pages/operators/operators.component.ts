@@ -7,9 +7,10 @@ import {
 import { AlertService, CoreService, MongoService } from "wacom";
 import { TranslateService } from "src/app/modules/translate/translate.service";
 import { FormInterface } from "src/app/modules/form/interfaces/form.interface";
-import { User, UserService } from "src/app/core";
 import { Theme, ThemeService } from "src/app/modules/theme/services/theme.service";
 import { Router } from "@angular/router";
+import { UserService } from "src/app/modules/user/services/user.service";
+import { User } from "src/app/modules/user/interfaces/user.interface";
 
 @Component({
 	templateUrl: "./operators.component.html",
